@@ -1,0 +1,363 @@
+/*
+*******************************************************
+* 			FUENTES, COLORES Y VARIABLES			  *
+*******************************************************
+*/
+
+/* PARA LAS FUENTES UTILIZADAS */
+@font-face{
+	font-family: 'Fuente Botones';
+	src: url('./Fuentes/Monster AG.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Secciones'; /*CAMBIADA*/
+	src: url('./Fuentes/waltographUI.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Gadgets';
+	src: url('./Fuentes/A Bug s Life.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Texto';
+	src: url('./Fuentes/Findet Nemo.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Referencias';
+	src: url('./Fuentes/Simpsonfont DEMO.otf') format('truetype');
+}
+
+/* VARIABLES USADAS */
+:root
+{
+	/*COLORES*/
+	--fondoApartados : #f7e214; /*Process Yellow PANTONE - amarillo*/
+	--fondoPagina : #f2d6d8; /*PMS 670 PANTONE - rosa pálido*/
+	--colorGadget : #d81e05; /*PMS 485 PANTONE - rojo*/	
+	--colorTituloNeed : #006b3f; /*PMS 349 PANTONE - verde oscuro*/
+	--fondoBoton : #fcc963; /*PMS 135 PANTONE - naranja pastel*/ 
+	--colorBotonResaltado: #ffd87f; /*PMS 134 PANTONE - naranja pastel pálido*/ 
+	--colorTexto:  #3a75c4; /*PMS 285 PANTONE - azul cielo intenso*/
+
+
+
+	/*FUENTES*/
+	--fuenteSecciones : 'Fuente Secciones'; /*CAMBIADA*/
+	--fuenteTextoSeccion : 'Fuente Texto';
+	--fuenteGadgets : 'Fuente Gadgets';
+	--fuenteBotones : 'Fuente Botones';
+	--fuenteReferencias: 'Fuente Referencias';
+}
+
+/*
+*******************************************************
+* 					DISPOSITIVOS					  *
+*******************************************************
+*/
+
+/* Para los distintos dispositivos:  móviles, tablets y ordenadores. */
+@media (min-width: 320px) and (max-width: 686px){
+	[id*="Text"]{
+		width: 500px;
+		height: 80px;
+	}
+}
+
+@media only screen and (min-width: 600px){
+	.section {width: 8.33%;}
+	.need {width: 16.66%;}
+}
+
+@media only screen and (min-width:  768px){
+	.section {width: 100.33%;}
+	.need {width: 76.66%;}
+}
+
+/*
+*******************************************************
+* 						DISEÑO					      *
+*******************************************************
+*/
+
+/* DISEÑO DE TODA LA PÁGINA */
+body {
+	background-color: var(--fondoPagina);
+	font-size: 100%;
+	margin: 0 auto;
+	width: 1260px;
+}
+
+/* DISEÑO DEL BOTÓN QUE NOS PERMITE VOLVER AL INICIO DE LA PÁGINA*/
+.to_top{
+	position: fixed; 
+	bottom: 20px; 
+	right: 30px; 
+	width: 25px;
+	z-index: 99;
+	border: none;
+	outline: 5px solid;
+	outline-color: var(--colorTexto);
+	background: transparent;
+	padding: 15px;
+	border-radius: 30px; 
+	font-size: 20px; 
+	background-color: var(--colorBotonResaltado);
+}
+
+.to_top:hover {
+	background-color: var(--colorGadget); /* Add a dark-grey background on hover */
+}
+
+/* DISEÑO DEL PANEL DE NAVEGACIÓN */
+nav {
+	font-family: var(--fuenteBotones), sans-serif;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0px;
+}
+
+/* Para el efecto de resaltado de los botones y sus ajustes normales */
+nav > a {
+	border: 0 solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+	outline: 1px solid;
+	outline-offset: 0px;
+	text-shadow: none;
+	transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+	background-color: var(--fondoBoton);
+	border-color: var(--colorTituloNeed);
+	border-radius: 50px;
+	font-size: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+} 
+
+nav > a:hover {
+	border: 1px solid;
+	box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+	outline-color: rgba(255, 255, 255, 0);
+	outline-offset: 15px;
+	text-shadow: 1px 1px 2px #427388; 
+}
+
+#top a:link, #top a:visited  {
+    padding: 14px;
+    text-align: center;
+    color: var(--colorTituloNeed); 
+    text-decoration: none;
+    display: inline-block;
+}
+
+#top a:hover, #top.a:active {
+    background-color: var(--colorBotonResaltado); 
+    border-radius: 100px;
+}
+
+/* DISEÑO DE LAS SECCIONES */
+.section_text, .subsection_text {
+	color: var(--colorTexto);
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family: var(--fuenteTextoSeccion), sans-serif;
+	font-size: 30px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.section_title {
+	font-family: var(--fuenteSecciones), sans-serif;
+	background-color: var(--fondoApartados);
+	color: var(--colorTituloNeed);
+	margin-bottom: 10px;
+	padding-top: 25px;
+	padding-left: 25px;
+	padding-bottom: 20px;
+	text-align: center;
+	height: 50px;
+	font-size: 60px;
+}
+
+.section{
+	background-color: var(--fondoApartados);
+	border-radius: 30px;
+	outline: 5px solid;
+	outline-color: var(--colorTexto);
+}
+
+/* DISEÑO DE LA PARTE DE NECESIDADES */
+.need {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+
+	display: grid;
+	grid-column-gap: 10px;
+	grid-template-columns: 300px;
+	grid-template-rows: 100px;
+	grid-template-areas: "titulo	dato	video"
+						 "aparicion	tiempo  video"
+						 "necesidad	x    video"
+						 "texto 	texto 	texto"
+						 "separador	separador	separador";
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.separador {
+	background-color: var(--fondoPagina);
+	width: 1200px;
+	height: 20px;
+	overflow: visible;
+	clear: both;
+	grid-area: separador;
+	border-radius: 10px;
+	border-color: var(--colorTexto);
+	border-width: 5px;
+}
+
+.need_title { /*DATOS DE LAS NECESIDADES (primera aparición...)*/
+	color : var(--colorTexto);
+	text-decoration: underline;
+	font-weight: 800;
+	width: 30px;
+	padding-top: 10px;
+}
+
+.need_value { /*Texto explicando la necesidad*/
+	color : var(--colorTexto);
+	font-family: var(--fuenteTextoSeccion), sans-serif;
+	text-align: justify;
+	font-size: 30px;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row: 4;
+	padding-bottom: 10px;
+	font-size: 25px;
+	grid-area: texto;
+}
+
+[id*="necesidad"] {
+	grid-column: 1;
+	grid-row: 3;
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 35px;
+	grid-area: necesidad;
+}
+
+[class*="need_title main"] { /*Dispositivo(Interfaz/Tecnología)*/
+	grid-column: 1;
+	grid-row: 1;
+
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 35px;
+
+	grid-area: titulo;
+}
+
+[class*="need_value main"] { /*Gadget*/
+	grid-column: 2;
+	grid-row: 1;
+	color : var(--colorGadget);
+	font-size: 50px;
+	font-family: var(--fuenteGadgets), sans-serif;
+
+	margin-top: 150px;
+	margin-left: 100px;
+
+	grid-area: dato;
+	align-self: center;
+	justify-self: end;
+}
+
+[id*="tiempo"] {
+	grid-column: 2;
+	grid-row: 2;
+
+	font-size: 35px;
+	font-family: var(--fuenteTextoSeccion);
+	grid-area: tiempo;
+	align-self: center;
+	justify-self: end;
+}
+
+[id*="aparicion"]
+{
+	grid-column: 1;
+	grid-row: 2;
+
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 30px;
+
+	grid-area: aparicion;
+	align-self: center;
+	justify-content: left;
+}
+
+/*DISEÑO DE LOS VÍDEOS E IMÁGENES */
+.media{
+    height: 300px;
+    width: 400px;
+    float: right;
+    grid-column: 3 / 3;
+    grid-row: 1 / 7;
+    margin-left: 20px;
+    margin-right: 10px;
+
+    grid-area: video;
+    align-self: center;
+    justify-self: right;
+}
+
+.subsection_title {
+	color: var(--colorGadget);
+	font-family: var(--fuenteSecciones);
+	padding-left: 20px;
+	font-size: 40px;
+}
+
+/* DISEÑO DE LA PARTE DE LAS REFERENCIAS */
+.autor {
+	color: var(--colorGadget);
+	font-family: var(--fuenteReferencias), sans-serif;
+	font-size: 25px;
+}
+
+a {
+	color: var(--colorGadget);
+	cursor: pointer;
+	font-size: 30px;
+}
+
+.link{
+	font-size: 24px;
+}
+
+.titulo, .visita
+{
+	color: var(--colorTexto);
+	font-family: var(--fuenteReferencias);
+	font-size: 25px;
+}
+
+li {
+	color: var(--colorGadget);
+	font-family: var(--fuenteReferencias);
+	font-size: 25px;
+}

@@ -1,0 +1,336 @@
+/*
+*******************************************************
+* 			FUENTES, COLORES Y VARIABLES			  *
+*******************************************************
+*/
+
+/* PARA LAS FUENTES UTILIZADAS */
+@font-face{
+	font-family: 'Fuente Botones';
+	src: url('./Fuentes/TechnoBoard.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Secciones';
+	src: url('./Fuentes/Tr2n.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Gadgets';
+	src: url('./Fuentes/BLADRMF_.ttf') format('truetype');
+}
+
+@font-face{
+	font-family: 'Fuente Texto';
+	src: url('./Fuentes/consolas.ttf') format('truetype');
+}
+
+/* VARIABLES USADAS */
+:root
+{
+	/*COLORES*/
+	--fondoApartados : #2b2b28; /*PMS 426 PANTONE - negro grisáceo*/
+	--fondoPagina : #d1cedd; /*PMS 2706 PANTONE - blanco liláceo*/
+	--colorGadget : #ad9ed3; /*PMS 814 2X PANTONE - morado claro*/
+	--colorTituloNeed : #1eb53a; /*PMS 361 PANTONE - verde*/
+	--fondoBoton : #2d008e; /*PMS 2738 PANTONE - morado oscuro*/ 
+	--colorBotonResaltado: #4930ad; /*PMS 2736 PANTONE - morado*/
+	
+
+	/*FUENTES*/
+	--fuenteSecciones : 'Fuente Secciones';
+	--fuenteTextoSeccion : 'Fuente Texto';
+	--fuenteGadgets : 'Fuente Gadgets';
+	--fuenteBotones : 'Fuente Botones';
+}
+
+/*
+*******************************************************
+* 					DISPOSITIVOS					  *
+*******************************************************
+*/
+
+/* Para los distintos dispositivos:  móviles, tablets y ordenadores. */
+@media (min-width: 320px) and (max-width: 686px){
+	[id*="Text"]{
+		width: 500px;
+		height: 80px;
+	}
+}
+
+@media only screen and (min-width: 600px){
+	.section {width: 8.33%;}
+	.need {width: 16.66%;}
+}
+
+@media only screen and (min-width:  768px){
+	.section {width: 100.33%;}
+	.need {width: 76.66%;}
+}
+
+/*
+*******************************************************
+* 						DISEÑO					      *
+*******************************************************
+*/
+
+/* DISEÑO DE TODA LA PÁGINA */
+body {
+	background-color: var(--fondoPagina);
+	font-size: 100%;
+	margin: 0 auto;
+	width: 1260px;
+
+	cursor: url('./CursorTecnología.png'), auto;
+}
+
+/* DISEÑO DEL BOTÓN PARA VOLVER AL INICIO DE LA PÁGINA */
+.to_top{
+	position: fixed; 
+	bottom: 20px; 
+	right: 30px; 
+	width: 25px;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background: transparent;
+	padding: 15px;
+	border-radius: 30px; 
+	font-size: 20px; 
+	background-color: var(--colorBotonResaltado);
+}
+
+.to_top:hover {
+	background-color: var(--colorGadget); /* Add a dark-grey background on hover */
+}
+
+/* DISEÑO DEL PANEL DE NAVEGACIÓN */
+nav {
+	font-size: 35px;
+	font-family: var(--fuenteBotones), sans-serif;
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/* Para el efecto de resaltado de los botones y sus ajustes normales */
+nav > a {
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  background-color: var(--fondoBoton);
+} 
+
+nav > a:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+
+#top a:link, #top a:visited  {
+    padding: 14px;
+    text-align: center;
+    color: var(--colorTituloNeed); 
+    text-decoration: none;
+    display: inline-block;
+}
+
+#top a:hover, #top.a:active {
+    background-color: var(--colorBotonResaltado); 
+}
+
+/* DISEÑO DE LAS SECCIONES */
+.section_text, .subsection_text {
+	color: var(--colorTituloNeed);
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-family: var(--fuenteTextoSeccion), sans-serif;
+	font-size: 20px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.section_title {
+	font-family: var(--fuenteSecciones), sans-serif;
+	background-color: var(--fondoPagina);
+	color: var(--fondoBoton);
+	margin-bottom: 10px;
+	padding-top: 25px;
+	padding-left: 25px;
+	text-align: center;
+	height: 50px;
+	font-size: 50px;
+}
+
+.section{
+	background-color: var(--fondoApartados);
+}
+
+/* DISEÑO DE LA PARTE DE NECESIDADES */
+.need {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+
+	display: grid;
+	grid-column-gap: 10px;
+	grid-template-columns: 300px;
+	grid-template-rows: 70px;
+	grid-template-areas: "titulo	dato	video"
+						 "aparicion	tiempo  video"
+						 "necesidad	x    video"
+						 "texto 	texto 	texto"
+						 "separador	separador	separador";
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.separador {
+	background-color: var(--colorGadget);
+	width: 1200px;
+	height: 20px;
+	border:  none;
+	margin-top: 50px;
+	overflow: visible;
+	clear: both;
+	grid-area: separador;
+
+}
+
+.need_title { /*DATOS DE LAS NECESIDADES (primera aparición...)*/
+	color : var(--colorTituloNeed);
+	text-decoration: underline;
+	font-weight: 800;
+	width: 30px;
+	padding-top: 10px;
+}
+
+.need_value { /*Texto explicando la necesidad*/
+	color : var(--colorTituloNeed);
+	font-family: var(--fuenteTextoSeccion), sans-serif;
+	text-align: justify;
+	/*grid-column: 1 / 1;*/
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row: 4;
+	padding-bottom: 10px;
+
+	grid-area: texto;
+}
+
+[id*="necesidad"] {
+	grid-column: 1;
+	grid-row: 3;
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 20px;
+	grid-area: necesidad;
+}
+
+[class*="need_title main"] { /*Dispositivo*/
+	grid-column: 1;
+	grid-row: 1;
+
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 20px;
+
+	grid-area: titulo;
+}
+
+[class*="need_value main"] { /*Gadget*/
+	grid-column: 2;
+	grid-row: 1;
+	color : var(--colorGadget);
+	font-size: 30px;
+	font-family: var(--fuenteGadgets), sans-serif;
+
+	grid-area: dato;
+	align-self: center;
+	justify-self: end;
+}
+
+[id*="tiempo"] {
+	grid-column: 2;
+	grid-row: 2;
+
+	font-size: 20px;
+	font-family: var(--fuenteTextoSeccion);
+	grid-area: tiempo;
+	align-self: center;
+	justify-self: end;
+}
+
+[id*="aparicion"]
+{
+	grid-column: 1;
+	grid-row: 2;
+
+	font-family: var(--fuenteTextoSeccion);
+	font-size: 20px;
+
+	grid-area: aparicion;
+	align-self: center;
+	justify-content: left;
+}
+
+/* DISEÑO DE LOS VÍDEOS E IMÁGENES */
+.media{
+    height: 300px;
+    width: 400px;
+    float: right;
+    grid-column: 3 / 3;
+    grid-row: 1 / 7;
+    margin-left: 20px;
+    margin-right: 10px;
+
+    grid-area: video;
+    align-self: center;
+    justify-self: right;
+}
+
+.subsection_title {
+	color: var(--colorGadget);
+	font-family: var(--fuenteGadgets);
+	padding-left: 20px;
+}
+
+/* DISEÑO DE LA PARTE DE LAS REFERENCIAS */
+.autor {
+	color: var(--colorGadget);
+	font-family: var(--fuenteGadgets), sans-serif;
+}
+
+a {
+	color: var(--colorGadget);
+	cursor: pointer;
+}
+
+.link{
+	font-size: 18px;
+}
+
+.titulo, .visita
+{
+	color: var(--colorTituloNeed);
+	font-family: var(--fuenteTextoSeccion);
+}
+
+li {
+	color: var(--colorGadget);
+}
